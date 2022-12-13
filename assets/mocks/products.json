@@ -1,0 +1,42 @@
+[
+    {
+    "id":0,
+     "name":"Steak",
+     "price": 12.0,
+     "num_peices":"5",
+     "distance":"5",
+     "favorite":false
+     },    
+    {
+    "id":1,
+    "name":"Vegetables",
+    "price": 12.0,
+    "num_peices":"5",
+    "distance":"5",
+    "favorite":false
+     },  
+    {
+    "id":2,
+    "name":"Beverages",
+    "price": 12.0,
+    "num_peices":"5",
+    "distance":"5",
+    "favorite":false
+     },
+     {
+     "id":3,
+    "name":"Fish",
+    "price": 12.0,
+    "num_peices":"5",
+    "distance":"5",
+    "favorite":false
+     },
+     {
+     "id":4,
+    "name":"Juice",
+    "price": 12.0,
+    "num_peices":"5",
+    "distance":"5",
+    "favorite":false
+    }
+ ]
