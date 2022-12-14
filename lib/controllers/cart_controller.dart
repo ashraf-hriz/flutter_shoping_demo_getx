@@ -12,13 +12,6 @@ class CartController extends GetxController{
     } else {
       _products[product] = 1;
     }
-
-    Get.snackbar(
-      "Product Added",
-      "You have added the ${product.name} to the cart",
-      snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 2),
-    );
   }
 
   void addProductFromHome(Product product) {

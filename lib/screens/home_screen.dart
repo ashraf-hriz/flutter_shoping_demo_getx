@@ -153,7 +153,7 @@ class PersonalAssetWidget extends StatelessWidget {
               children: [
                Obx((){
                  return Positioned(
-                   left: 10.w,
+                   left: 15.w,
                    bottom: 25.h,
                    child: Text(
                      '\$ ${cartController.totalPrice}',
@@ -168,7 +168,7 @@ class PersonalAssetWidget extends StatelessWidget {
                   bottom: 10.h,
                   left: 8.w,
                   child: SvgPicture.asset(
-                    "assets/icons/center_cart_icon.svg",
+                    "assets/icons/shopping_cart_icon.svg",
                     color: Colors.white,
                     width: 30.w,
                     height: 30.h,
