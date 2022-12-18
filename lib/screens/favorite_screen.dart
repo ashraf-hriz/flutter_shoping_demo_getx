@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_task/controllers/home_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+
+import '../widgets/favourite_item.dart';
 
 class TestScreen extends StatelessWidget {
   @override
@@ -83,10 +88,38 @@ class CustomClipPath extends CustomClipper<Path> {
 }
 
 class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
+  FavoriteScreen({Key? key}) : super(key: key);
+  var controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      width: Get.width,
+      height: Get.height,
+      padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+            child: Text(
+              'Favourites',
+              style: Theme.of(context).textTheme.headline3,
+            ),
+          ),
+          Obx(
+            () => ListView.builder(
+              shrinkWrap: true,
+              itemCount: controller.favProducts.length,
+              itemBuilder: (context, index) {
+                return FavouriteItem(
+                  product: controller.products[controller.favProducts[index]],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
