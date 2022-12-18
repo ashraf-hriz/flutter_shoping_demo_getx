@@ -20,6 +20,7 @@ class ProductWidget extends StatelessWidget {
 
   final HomeController controller;
   final cartController = Get.find<CartController>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,19 +53,21 @@ class ProductWidget extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
-                    child: IconButton(
-                      onPressed: () {
-                        controller.changFavouriteStatus(index);
-                      },
-                      icon: Icon(
-                        (product.favorite!)
-                            ? Icons.favorite_rounded
-                            : Icons.favorite_border_sharp,
-                        color: (product.favorite!)
-                            ? MyColors.mainColor
-                            : MyColors.inActiveColor,
+                    child: Obx(
+                      () => IconButton(
+                        onPressed: () {
+                          controller.changFavouriteStatus(index);
+                        },
+                        icon: Icon(
+                          (controller.favProducts.contains(index) )
+                              ? Icons.favorite_rounded
+                              : Icons.favorite_border_sharp,
+                          color: (controller.favProducts.contains(index))
+                              ? MyColors.mainColor
+                              : MyColors.inActiveColor,
+                        ),
+                        iconSize: 12.r,
                       ),
-                      iconSize: 12.r,
                     ),
                   ),
                 ),
@@ -73,7 +76,7 @@ class ProductWidget extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding:  EdgeInsets.symmetric(vertical: 5.h, horizontal: 12.w),
+              padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 12.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -128,26 +131,31 @@ class ProductWidget extends StatelessWidget {
                         ),
                         Text(
                           '\$ 50',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2!
-                              .copyWith(decoration: TextDecoration.lineThrough,),
+                          style:
+                              Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
                         ),
                         SizedBox(
                           width: 25.w,
                         ),
-                        Obx(()=>IconButton(
-                          onPressed: () {
-                            cartController.addProductFromHome(product);
-                          },
-                          icon: Icon(
-                            (cartController.products.containsKey(product))?Icons.remove_shopping_cart:Icons.add_shopping_cart,
-                            color: (cartController.products.containsKey(product))
-                                ? MyColors.mainColor
-                                : Colors.greenAccent,
+                        Obx(
+                          () => IconButton(
+                            onPressed: () {
+                              cartController.addProductFromHome(product);
+                            },
+                            icon: Icon(
+                              (cartController.products.containsKey(product))
+                                  ? Icons.remove_shopping_cart
+                                  : Icons.add_shopping_cart,
+                              color:
+                                  (cartController.products.containsKey(product))
+                                      ? MyColors.mainColor
+                                      : Colors.greenAccent,
+                            ),
+                            iconSize: 18.w,
                           ),
-                          iconSize: 18.w,
-                        ),),
+                        ),
                       ],
                     ),
                   ),

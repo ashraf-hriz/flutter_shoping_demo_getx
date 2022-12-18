@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   var products = <Product>[];
   var categories = <Category>[];
+  var favProducts = <int>[].obs;
   var categoryLoading = true.obs;
   var productLoading = true.obs;
+  var isFav = false.obs;
 
   var pageIndex = 0.obs;
 
@@ -42,12 +44,18 @@ class HomeController extends GetxController {
   changFavouriteStatus(int productIndex) {
     //productLoading(true);
     print('change status ${products[productIndex].favorite}');
-    var currentStat = products[productIndex].favorite;
+    /*var currentStat = products[productIndex].favorite;
     products[productIndex].favorite = !currentStat!;
-    productLoading(true);
-    productLoading(false);
-    //products(products);
-    print('change status ${products[productIndex].favorite}');
+    isFav(!currentStat);*/
+    if (favProducts.contains(productIndex)){
+      favProducts.remove(productIndex);
+      isFav(false);
+    }else{
+      favProducts.add(productIndex);
+      isFav(true);
+    }
+
+    print('change status ${isFav.value}');
   }
 
   changPageIndex(int index) {
