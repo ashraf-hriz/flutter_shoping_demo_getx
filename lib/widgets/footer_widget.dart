@@ -44,7 +44,7 @@ class FooterWidget extends StatelessWidget {
                   style: TextStyle(letterSpacing: 0),
                   children: [
                     TextSpan(
-                      text: 'WHOP',
+                      text: 'WHOP ',
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: Color(0xff21114B),
                           fontSize: 31.sp,
@@ -55,7 +55,7 @@ class FooterWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: Color(0xff21114B),
                           fontSize: 31.sp,
-                          letterSpacing: -10),
+                          letterSpacing: -15),
                     ),
                     TextSpan(
                       text: 'E',
@@ -69,6 +69,7 @@ class FooterWidget extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Color(0xff21114B),
                             fontSize: 31.sp,
+                            letterSpacing: 2,
                           ),
                     ),
                   ],
